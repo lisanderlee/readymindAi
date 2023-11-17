@@ -3,17 +3,33 @@ import Image from 'next/image'
 import HeroModel from './hero-model'
 import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
-// import logoLaravel from '@/images/logos/laravel.svg'
-// import logoMirage from '@/images/logos/mirage.svg'
-// import logoStatamic from '@/images/logos/statamic.svg'
-// import logoStaticKit from '@/images/logos/statickit.svg'
-// import logoTransistor from '@/images/logos/transistor.svg'
-// import logoTuple from '@/images/logos/tuple.svg'
+import { motion } from 'framer-motion'
 
 export function Hero() {
+  const sectionVariants1 = {
+    offscreen: {
+      y: -10,
+      opacity: 0,
+    },
+    onscreen: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        ease: 'easeOut',
+        duration: 0.1,
+        damping: 10,
+      },
+    },
+  }
+
   return (
     <>
       <Container className="z-30 h-screen pb-16 pt-20 lg:pt-32">
+      {/* <motion.div
+          variants={sectionVariants1}
+          initial="offscreen"
+          whileInView="onscreen"
+        > */}
         <div className=" flex h-full flex-col   justify-center ">
           <h1 className="  max-w-4xl text-left font-display text-5xl font-medium tracking-tight text-slate-200 sm:text-7xl">
             <span className="relative whitespace-nowrap  text-green-400">
@@ -35,10 +51,16 @@ export function Hero() {
             decisiones de negocio con nuestra solución AI escalable y segura.
           </p>
         </div>
-
-        <div className="lg:absolute sm:relative z-40  lg:-right-56 top-0">
+        {/* </motion.div> */}
+        {/* <motion.div
+          variants={sectionVariants1}
+          initial="offscreen"
+          whileInView="onscreen"
+        > */}
+        <div className="fixed z-40  lg:-right-56 top-0">
           <HeroModel />
         </div>
+        {/* </motion.div> */}
       </Container>
     </>
   )
