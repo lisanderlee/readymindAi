@@ -109,11 +109,11 @@ export function Header() {
           </div>
           <div className="flex items-center gap-x-5 md:gap-x-8">
           
-            <button href="/register" className='bg-green-400 py-3 px-4 rounded-3xl hover:bg-green-200'>
+            <a  target='_self' href="https://simplesystems.mx/ocr/app/admin/" className='bg-green-400 py-3 px-4 rounded-3xl hover:bg-green-200'>
               <span className='font-bold text-sm'>
-                Get started <span className="hidden lg:inline">today</span>
+                Iniciar sesion
               </span>
-            </button>
+            </a>
             <div className="-mr-1 md:hidden">
               <MobileNavigation />
             </div>

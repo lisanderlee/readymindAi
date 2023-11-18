@@ -4,7 +4,7 @@ import HeroModel from './hero-model'
 import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
 import { motion } from 'framer-motion'
-
+import { Suspense } from 'react'
 export function Hero() {
   const sectionVariants1 = {
     offscreen: {
@@ -21,7 +21,21 @@ export function Hero() {
       },
     },
   }
-
+  const sectionVariants2 = {
+    offscreen: {
+ 
+      opacity: 0,
+    },
+    onscreen: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        ease: 'easeOut',
+        duration: 2,
+        damping: 30,
+      },
+    },
+  }
   return (
     <>
       <Container className="z-30 h-screen pb-16 pt-20 lg:pt-32">
@@ -53,12 +67,14 @@ export function Hero() {
         </div>
         {/* </motion.div> */}
         {/* <motion.div
-          variants={sectionVariants1}
+          variants={sectionVariants2}
           initial="offscreen"
           whileInView="onscreen"
         > */}
         <div className="fixed z-40  lg:-right-56 top-0">
+        <Suspense  fallback={"loadConfig..."}>
           <HeroModel />
+          </Suspense>
         </div>
         {/* </motion.div> */}
       </Container>
